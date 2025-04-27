@@ -18,7 +18,6 @@ const Index = () => {
   const [featuredJobs, setFeaturedJobs] = useState([]);
   
   useEffect(() => {
-    // Get 4 most recent jobs for the featured section
     const recent = [...jobs]
       .filter(job => job.isActive)
       .sort((a, b) => new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime())
@@ -34,7 +33,6 @@ const Index = () => {
   
   return (
     <Layout>
-      {/* Hero Section */}
       <div className="relative bg-hiresphere-background py-20 md:py-28">
         <div className="container max-w-6xl">
           <div className="text-center mx-auto max-w-3xl">
@@ -70,7 +68,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Featured Jobs Section */}
       <div className="py-16 bg-white">
         <div className="container">
           <div className="flex justify-between items-center mb-8">
@@ -94,7 +91,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* For Employers Section */}
       <div className="py-16 bg-hiresphere-light">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
@@ -133,7 +129,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* How It Works Section */}
       <div className="py-16 bg-white">
         <div className="container">
           <h2 className="text-3xl font-bold mb-12 text-center">How HireSphere Works</h2>
@@ -180,8 +175,7 @@ const Index = () => {
         </div>
       </div>
       
-      {/* CTA Section */}
-      <div className="py-16 bg-hiresphere-primary text-white">
+      <div className="py-16 bg-hiresphere-primary">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
@@ -197,10 +191,10 @@ const Index = () => {
               {user.role === "employer" ? "Go to Dashboard" : "Browse Jobs"}
             </Button>
           ) : (
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex text-dark flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-white text-hiresphere-primary hover:bg-gray-100"
+                className="bg-dark text-hiresphere-primary hover:bg-gray-100"
                 onClick={() => navigate("/register")}
               >
                 Create an Account
@@ -208,7 +202,7 @@ const Index = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-white border-white hover:bg-hiresphere-secondary"
+                className="text-dark border-white bg-dark hover:bg-hiresphere-secondary"
                 onClick={() => navigate("/login")}
               >
                 Sign In
